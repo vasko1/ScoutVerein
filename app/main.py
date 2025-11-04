@@ -8,7 +8,8 @@ from app.routers import children as children_router
 from app.routers import reports as reports_router
 from app.routers import events as events_router
 from app.routers import users as users_router
-
+import uvicorn
+import os
 Base.metadata.create_all(bind=engine)
 
 def init_seed():
@@ -43,7 +44,6 @@ def health():
 
 
 if __name__ == "__main__":
-    import uvicorn
-    import os
+   
 uvicorn.run("app.main:app", host="0.0.0.0", port=int(os.environ.get("PORT", 8000)))
 
